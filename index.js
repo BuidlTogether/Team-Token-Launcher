@@ -3,6 +3,7 @@ let provider
 let TLContract
 let TokenList
 let TLContractAddress = '0xabd8a23eb103cfb15221cbe910869859bbff1ad3'
+let loggedIn = false
 let TLContractABI = [
   {
     inputs: [
@@ -412,7 +413,8 @@ async function login() {
   TLContract = new _ethers.Contract(TLContractAddress, TLContractABI, signer)
   TokenList = await getTokenDetails(TLContract, signer)
   console.log(TokenList)
-  populateTokens(TokenList)
+  if (loggedIn == false) populateTokens(TokenList)
+  loggedIn = true
 }
 
 async function launchToken() {
@@ -441,6 +443,7 @@ async function getTokenDetails(TLContract, signer) {
       symbol: result[1],
       teamName: result[2],
       teamURI: result[3],
+      address: tokenList[i],
     })
   }
   return Details
@@ -450,10 +453,10 @@ async function populateTokens(list) {
     let item = list[n]
     console.log(item)
     let row = document.createElement('tr')
-    cell1 = document.createElement('n')
-    cell2 = document.createElement('s')
-    cell3 = document.createElement('tn')
-    cell4 = document.createElement('turi')
+    cell1 = document.createElement('td')
+    cell2 = document.createElement('a')
+    cell3 = document.createElement('td')
+    cell4 = document.createElement('td')
 
     //cell1.innerHTML = item.name
 
@@ -462,14 +465,16 @@ async function populateTokens(list) {
     //cell3.innerHTML = item.teamName
     //cell4.innerHTML = item.teamURI
     // cell4.href = item.teamURI
-    let textnode = document.createTextNode(item.name)
-    let textnode1 = document.createTextNode(item.symbol)
-    let textnode2 = document.createTextNode(item.teamName)
-    let textnode3 = document.createTextNode(item.teamURI)
-    cell1.appendChild(textnode)
-    cell2.appendChild(textnode1)
-    cell3.appendChild(textnode2)
-    cell4.appendChild(textnode3)
+    let name = document.createTextNode(item.name)
+    let symbol = document.createTextNode(item.symbol)
+    let teamName = document.createTextNode(item.teamName)
+    let teamURI = document.createTextNode(item.teamURI)
+    cell1.appendChild(teamName)
+    cell2.appendChild(name)
+    cell2.href = 'https://explorer.harmony.one/address/' + item.address
+    cell3.appendChild(symbol)
+    cell3.href = 'https://explorer.harmony.one/address/' + item.address
+    cell4.appendChild(teamURI)
     row.appendChild(cell1)
     row.appendChild(cell2)
     row.appendChild(cell3)
