@@ -450,10 +450,10 @@ async function populateTokens(list) {
     let item = list[n]
     console.log(item)
     let row = document.createElement('tr')
-    cell1 = document.createElement('n')
-    cell2 = document.createElement('s')
-    cell3 = document.createElement('tn')
-    cell4 = document.createElement('turi')
+    cell1 = document.createElement('td')
+    cell2 = document.createElement('td')
+    cell3 = document.createElement('td')
+    cell4 = document.createElement('td')
 
     //cell1.innerHTML = item.name
 
