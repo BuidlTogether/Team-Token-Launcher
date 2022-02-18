@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+    <script src="index.js"></script>
+    <script src="https://cdn.ethers.io/lib/ethers-5.1.umd.min.js" type="text/javascript">
+    </script>
+  </head>
+  <body>
+    <h1>Account</h1>
+    <button onclick="login()">Metamask Login</button> <br><br>
+    <label id="statusLabel">Status: NOT CONNECTED</label><br><br>
+    <label id="addressLabel">Address: -</label><br><br>
+    <label id="balanceLabel">Xdai Balance: -</label>
+    <h1>Launch Team Token</h1>
+    <input placeholder = "Team Name..."></input> <br>
+    <input placeholder = "Token Name..."></input> <br><br>
+    <label>Total Supply: 1,000,000,000</label><br>
+    <label>Decimals: 18</label><br><br>
+    <button>Launch Token</button>
+
+  <h1>Info</h1>
+  <p>Launch a token to issue bounties and incentivize other teams to buidl on your project.</p>
+
+  <p>Your team agrees to distribute your team's hackathon winnings proportionally to token holders upon broof of burn. </p>
+
+  <p>You can also swap your token with BUIDL CREDITS and other team tokens for maximum collaboration</p>
+
+  <h1>List of Teams</h1>
+  <table>
+    <thead>
+      <th>Team</th>
+      <th>Name</th>
+      <th>Symbol</th>
+      <th>Explore</th>
+    </thead>
+    <tbody id="TeamsTable">
+    </tbody>
+  </table>
+  </body>
+
+</html>
