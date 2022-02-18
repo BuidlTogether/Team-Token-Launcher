@@ -88,7 +88,6 @@ interface IERC20 {
 
 // File @openzeppelin/contracts/token/ERC20/extensions/IERC20Metadata.sol@v4.5.0
 
-// SPDX-License-Identifier: MIT
 // OpenZeppelin Contracts v4.4.1 (token/ERC20/extensions/IERC20Metadata.sol)
 
 pragma solidity ^0.8.0;
@@ -118,7 +117,6 @@ interface IERC20Metadata is IERC20 {
 
 // File @openzeppelin/contracts/utils/Context.sol@v4.5.0
 
-// SPDX-License-Identifier: MIT
 // OpenZeppelin Contracts v4.4.1 (utils/Context.sol)
 
 pragma solidity ^0.8.0;
@@ -146,7 +144,6 @@ abstract contract Context {
 
 // File @openzeppelin/contracts/token/ERC20/ERC20.sol@v4.5.0
 
-// SPDX-License-Identifier: MIT
 // OpenZeppelin Contracts (last updated v4.5.0) (token/ERC20/ERC20.sol)
 
 pragma solidity ^0.8.0;
@@ -547,6 +544,10 @@ contract TeamToken is ERC20 {
         teamName = _teamName;
         _mint(tx.origin, 1_000_000_000 * 10**18);
     }
+
+    function burn(uint amount) public {
+        _burn(msg.sender,amount);
+    }
 }
 
 contract TokenLauncher {
@@ -565,4 +566,5 @@ contract TokenLauncher {
     function getAllTokens() public view returns (address[] memory) {
         return allTokens;
     }
+
 }

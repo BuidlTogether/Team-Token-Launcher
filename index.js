@@ -369,7 +369,7 @@ async function login(){
     let formattedBalance = await ethers.utils.formatEther(balance)
     document.getElementById("statusLabel").innerHTML = "STATUS: CONNECTED"
     document.getElementById("addressLabel").innerHTML = "Address: " + accounts[0]
-    document.getElementById("balanceLabel").innerHTML = "Balance: " + formattedBalance + " ETH"
+    document.getElementById("balanceLabel").innerHTML = "Balance: " + formattedBalance + " ONE"
 
     TLContract = new _ethers.Contract(TLContractAddress, TLContractABI, signer);
 }
