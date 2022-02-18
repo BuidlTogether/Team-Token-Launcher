@@ -14,11 +14,13 @@
     <label id="addressLabel">Address: -</label><br><br>
     <label id="balanceLabel">Xdai Balance: -</label>
     <h1>Launch Team Token</h1>
-    <input placeholder = "Team Name..."></input> <br>
-    <input placeholder = "Token Name..."></input> <br><br>
-    <label>Total Supply: 1,000,000,000</label><br>
+    <input id="teamName" placeholder = "Team Name..."></input> <br>
+    <input id="tokenName" placeholder = "Token Name..."></input> <br>
+    <input id="tokenSymbol" placeholder = "Token Symbol..."></input> <br><br>
+    <input id="tokenURI" placeholder = "Token URI (optional)..."></input> <label>link to team page</label><br><br>
+    <label>Total Supply: 1,000,000</label><br>
     <label>Decimals: 18</label><br><br>
-    <button>Launch Token</button>
+    <button onclick="launchToken()">Launch Token</button>
 
   <h1>Info</h1>
   <p>Launch a token to issue bounties and incentivize other teams to buidl on your project.</p>
